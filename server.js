@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser")
 const fs = require('fs')
 
+
 var pokedex;
 fs.readFile('./pokedex-27112020.json', 'utf8' , (err, data) => {
   if (err) {
@@ -37,7 +38,6 @@ app.post('/items', (req, res) => {
   const item = {
       id: pokedex.id + 1,
       name: req.body.name,
-      description: req.body.description,
       type: req.body.type
   }
   pokedex.push(item);

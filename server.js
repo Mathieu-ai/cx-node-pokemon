@@ -40,7 +40,7 @@ app.post('/items', (req, res) => {
       description: req.body.description,
       type: req.body.type
   }
-  file.push(item);
+  pokedex.push(item);
   res.json(item);
 })
 

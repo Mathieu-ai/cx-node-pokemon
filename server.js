@@ -35,10 +35,10 @@ app.get("/pokemon/:id", function(request, response) {
 
 app.post('/items', (req, res) => {
   const item = {
-      id: File.length + 1,
+      id: pokedex.length + 1,
       name: req.body.name,
       description: req.body.description,
-      type: req.File.type
+      type: req.pokedex.type
   }
   file.push(item);
   res.json(item);

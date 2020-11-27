@@ -47,6 +47,18 @@ app.post('/items', (req, res) => {
   res.json(req.body);
 })
 
+app.delete("/items/:id", function(req, res) {
+  
+  const result = pokedex.filter(pokm => pokm.id != req.params.id);
+  let ok = result.length != pokedex.length
+  if (ok) {
+    pokedex = result
+    fs.writeFileSync(fileName, JSON.stringify(pokedex, null, 5), 'utf-8');
+  }
+  
+  return res.send(ok)
+})
+
 
 app.listen(3000, function() {
     console.log(

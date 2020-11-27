@@ -36,7 +36,7 @@ app.get("/pokemon/:id", function(request, response) {
 
 app.post('/items', (req, res) => {
   const item = {
-      id: pokedex.id + 1,
+      id: req.body.id,
       name: req.body.name,
       type: req.body.type
   }

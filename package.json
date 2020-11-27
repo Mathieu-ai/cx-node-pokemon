@@ -1,0 +1,24 @@
+{
+  "name": "catchthemall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mathieu-ai/cx-node-pokemon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mathieu-ai/cx-node-pokemon/issues"
+  },
+  "homepage": "https://github.com/Mathieu-ai/cx-node-pokemon#readme"
+}

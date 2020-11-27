@@ -2,10 +2,11 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser")
 const fs = require('fs')
+const fileName = './pokedex-27112020.json'
 
 
 var pokedex;
-fs.readFile('./pokedex-27112020.json', 'utf8' , (err, data) => {
+fs.readFile(fileName, 'utf8' , (err, data) => {
   if (err) {
     console.error(err)
     return
@@ -25,6 +26,7 @@ app.get("/", function(request, response) {
 app.get("/pokemon", function(request, response) {
 
   return response.send(JSON.stringify(pokedex, null, 5));
+  //return response.send(pokedex);
 });
 
 app.get("/pokemon/:id", function(request, response) {
@@ -35,13 +37,14 @@ app.get("/pokemon/:id", function(request, response) {
 });
 
 app.post('/items', (req, res) => {
-  const item = {
-      id: req.body.id,
-      name: req.body.name,
-      type: req.body.type
-  }
-  pokedex.push(item);
-  res.json(item);
+  
+  /*const result = pokedex.filter(pokm => pokm.id == request.params.id);
+  let maxId = (accumulator, pokm) => pokm.id > accumulator ? pokm.id : accumulator;
+  maxId = maxId +1
+  */  
+  pokedex.push(req.body);
+  fs.writeFileSync(fileName, JSON.stringify(pokedex, null, 5), 'utf-8');
+  res.json(req.body);
 })
 
 

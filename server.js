@@ -38,7 +38,7 @@ app.post('/items', (req, res) => {
       id: pokedex.length + 1,
       name: req.body.name,
       description: req.body.description,
-      type: req.pokedex.type
+      type: req.body.type
   }
   file.push(item);
   res.json(item);
